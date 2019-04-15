@@ -3,11 +3,19 @@
 void main()
 {
 	Drob a(3, 2);
-	Drob b(1,2);
+	Drob b;
 	Drob c = a + b;
-	a.print();
-	b.print();
-	c.print();
+
+	//b = a--;
+
+	//b = a;
+	cin >> b;
+	cout << b;
+
+	cout << a;
+
+	//a.print();
+	//b.print();
 	//Drob c;
 	//a.print();
 	//b.print();
