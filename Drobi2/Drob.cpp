@@ -52,6 +52,37 @@ Drob Drob::operator/=(const Drob & b)
 	return *this;
 }
 
+Drob & Drob::operator++()
+{
+	Drob c(1, 1);
+	*this += c;
+	*this = c;
+	return *this;
+}
+
+Drob Drob::operator++(int)
+{
+	Drob c(1, 1);
+	Drob b(*this);
+	*this += c;
+	return b;
+}
+
+Drob & Drob::operator--()
+{
+	Drob c(1, 1);
+	*this -= c;
+	return *this;
+}
+
+Drob Drob::operator--(int)
+{
+	Drob c(1, 1);
+	Drob b(*this);
+	*this -= c;
+	return b;
+}
+
 void Drob::setX(int x)
 {
 	this->x = x;
@@ -72,7 +103,7 @@ int Drob::getY() const
 	return this->y;
 }
 
-void Drob::print()
+void Drob::print()const
 {
 	cout << x << "/" << y << endl;
 }
@@ -82,6 +113,24 @@ double Drob::getFraction() const
 	return double(this->x) / this->y;
 }
 
+
+ostream & operator<<(ostream & os, const Drob & obj)
+{
+	obj.print();
+	return os;
+}
+
+istream & operator>>(istream & is, Drob & obj)
+{
+	int k;
+	cout << "x = ?" << endl;
+	cin >> k;
+	obj.setX(k);
+	cout << "y = ?" << endl;
+	cin >> k;
+	obj.setY(k);
+	return is;
+}
 
 Drob operator+(const Drob &a, const Drob &b)
 {
