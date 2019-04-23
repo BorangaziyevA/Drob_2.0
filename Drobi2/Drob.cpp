@@ -113,6 +113,10 @@ double Drob::getFraction() const
 	return double(this->x) / this->y;
 }
 
+Drob::operator double() const
+{
+	return double(this->x) / this->y;
+}
 
 ostream & operator<<(ostream & os, const Drob & obj)
 {
@@ -147,4 +151,9 @@ bool operator==(const Drob & a, const Drob & b)
 bool operator>=(const Drob & a, const Drob & b)
 {
 	return a.getFraction() >= b.getFraction();
+}
+
+bool operator<=(const Drob & a, const Drob & b)
+{
+	return a.getFraction() <= b.getFraction();
 }
