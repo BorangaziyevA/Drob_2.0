@@ -7,7 +7,8 @@ class Drob
 {
 	int x, y;
 public:
-	Drob(int x=0,int y=1);
+
+	explicit Drob(int x=0,int y=1);
 	Drob(const Drob &obj);
 	Drob operator+=(const Drob &b);
 	Drob operator-=(const Drob &b);
@@ -23,10 +24,13 @@ public:
 	int getY() const;
 	void print()const;
 	double getFraction() const;
+	operator double() const;
 };
+
 
 ostream& operator<<(ostream& os, const Drob& obj);
 istream& operator>>(istream& is, Drob& obj);
 Drob operator+(const Drob &a, const Drob &b);
 bool operator==(const Drob &a, const Drob &b);
 bool operator>=(const Drob &a, const Drob &b);
+bool operator<=(const Drob &a, const Drob &b);
